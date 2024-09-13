@@ -1,0 +1,128 @@
+
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+        <div id="pdfContent">
+            <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+              <div class="card-body px-4 py-1">
+                <div class="row align-items-center">
+                  <div class="col-4">
+                    <img src="assets/dist/images/backgrounds/port_EPI.jpg" alt="" style="width: 150px; height: 80px;">
+                  </div>
+                  <div class="col-4 text-center fw-semibold"> <h4>FICHE DE DOTATION</h4></div>
+                  <div class="col-4 text-right ms-0"> Nro {{dotation.id}}</div>
+                  <!-- <h4 class="fw-semibold mb-8 text-center">FICHE DE DOTATION</h4> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="mb-3">Informations sur la dotation</h5>
+                <form *ngIf="dotation">
+                  <div class="row">
+                    <div class="col-md-6">
+                        <label for="Service" class="form-label">Service</label>
+                        <p>{{ dotation.service }}</p>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="name" class="form-label">Nom (s) et prenom (s)</label>
+                      <p>{{dotation.nom_beneficiaire}}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="fonction" class="form-label">fonction</label>
+                        <p>{{dotation.fonction}}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="metier" class="form-label">metier</label>
+                        <p>{{ dotation.metier }}</p>
+                    </div>
+
+                    <div class="col lg mb-1">
+                      <label for="equipement" class="form-label"><b>Equipement (s)</b></label>
+                      <!-- <ul class="list-group" *ngFor="let equipement of equipements">
+                        <li class="list-group-item">{{ equipement.designation }}</li>
+                      </ul> -->
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col"> &nbsp;&nbsp; Désignation équipement</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let equipement of equipements; let i =index">
+                            <!-- <th scope="row">{{i+1}}</th> -->
+                            <td><b>{{i+1}}</b>&ensp;- &ensp;{{ equipement.designation }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                    </div>
+
+                    <p>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cette dotation en Eqipements de Protection Individuelle(EPI)
+                      vous est fournie personellement par l'entreprise ___________________________
+                      sur la base de l'identification des risques auxquels sont exposés les employés. Conformément  au code du travail et autres réglementations
+                      applicables, ils vous appartient de porter ces équipements et de signaler toute défectuosité ou usure prématurée afin de les remplacer.
+                      Au-delà des risques pour votre intégrité physique, le non respect de ces consignes vous exposes à des sanctions disciplinaires.
+                    </p>
+
+                    <div class="row justify-content-center">
+                      <div class="col-6 text-left">
+                        <br><br>
+                        <b><u>Responsable QHSE & Management visuel</u></b>
+                      </div>
+                      <div class="col-3 text-right">
+                        Le &nbsp; {{dotation.date}} <br><br>
+                        <b><u>DIrection Générale</u></b>
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+
+
+
+
+                <!-- juste pour vérif -->
+                <!-- <div *ngIf="dotation">
+                  <h3>Dotation</h3>
+                  <p>ID: {{ dotation.id }}</p>
+                  <p>Date: {{ dotation.date }}</p>
+                  <p>Bénéficiare: {{ dotation.nom_beneficiaire }}</p>
+                  <p>Service: {{ dotation.service }}</p>
+                  <p>Fonction: {{ dotation.fonction }}</p>
+                  <p>Metier: {{ dotation.metier }}</p>
+                  <p>DateR: {{ dotation.dateR }}</p>
+
+                  <h3>Equipements</h3>
+                  <div *ngFor="let equipement of equipements">
+                    <p>Abreviation: {{ equipement.abreviation }}</p>
+                    <p>Désignation: {{ equipement.designation }}</p>
+                    <p>Utilité: {{ equipement.Utility }}</p>
+                    <p>Quantité: {{ equipement.Quantite }}</p>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+        </div>
+        <div class="col-12">
+          <div class="d-md-flex align-items-center mt-3">
+
+            <div class="ms-auto mt-3 mt-md-0">
+              <button type="button" class="btn btn-info font-medium rounded-pill px-4" (click)="downloadForm()" >
+                <div class="d-flex align-items-center">
+                  Télécharger
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

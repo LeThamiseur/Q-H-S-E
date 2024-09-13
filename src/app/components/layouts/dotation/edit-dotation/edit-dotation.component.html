@@ -1,0 +1,161 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Historique de dotations</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="text-muted" routerLink="/dotation"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><i>Modifier la dotation</i></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!-- formulaire de dotation -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mb-3">Informations sur la dotation</h5>
+            <form novalidate (ngSubmit)="onSubmit()" #updateDotForm = "ngForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="Service" placeholder="Service"
+                     [(ngModel)]="dotationData.service" name="service"
+                     #dotServ = "ngModel" 
+                     [ngClass]="{'is-invalid': dotServ.touched && !dotServ.valid}" required/>
+                    <label for="Service">Service</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="dateD" placeholder="Date de dotation" [(ngModel)]="dotationData.date" name="date"
+                    #dotDate = "ngModel" 
+                    [ngClass]="{'is-invalid': dotDate.touched && !dotDate.valid}" required />
+                    <label for="dateD">Date de dotation</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Nom (s) et prenom (s)" 
+                    [(ngModel)]="dotationData.nom_beneficiaire" name="nom"
+                    #dotBen = "ngModel" 
+                    [ngClass]="{'is-invalid': dotBen.touched && !dotBen.valid}" required/>
+                    <label for="name">Nom (s) et prenom (s)</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="fonction" 
+                    [(ngModel)]="dotationData.fonction" name="fonction"
+                    #dotFunc = "ngModel" 
+                    [ngClass]="{'is-invalid': dotFunc.touched && !dotFunc.valid}" required/>
+                    <label for="fonction">fonction</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="ext" class="form-control" id="metier" placeholder="metier" 
+                    [(ngModel)]="dotationData.metier" name="metier"
+                    #dotMet = "ngModel" 
+                    [ngClass]="{'is-invalid': dotMet.touched && !dotMet.valid}" required/>
+                    <label for="metier">metier</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      id="customRadioTrue"
+                      class="form-check-input"
+                      name="retour"
+                      [(ngModel)]="dotationData.retour"
+                      [value]="true"
+                    />
+                    <label class="form-check-label" for="customRadioTrue">Retour d'équipement(s)</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      id="customRadioFalse"
+                      class="form-check-input"
+                      name="retour"
+                      [(ngModel)]="dotationData.retour"
+                      [value]="false"
+                    />
+                    <label class="form-check-label" for="customRadioFalse">Pas de retour d'équipement(s)</label>
+                  </div>
+                </div>
+
+                <!-- Date de retour -->
+                <div class="col-md-6" *ngIf="dotationData.retour">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dateR"
+                      placeholder="Date de retour"
+                      [(ngModel)]="dotationData.dateR"
+                      #dotRetDate = "ngModel" 
+                      [ngClass]="{'is-invalid': dotRetDate.touched && !dotRetDate.valid}"
+                      name="dateR"
+                      required
+                    />
+                    <label for="dateR">Date de retour</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="equipement"><b>Equipement (s)</b></label>
+                  <div class="form-floating mb-3">
+
+                    <div class="form-group">
+                      <label for="equipements">Equipements</label>
+                      <select id="equipements" multiple  class="form-control">
+                        <option selected disabled *ngFor="let equip of equipementList" [value]="equip.id">{{ equip.designation }}</option>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="d-md-flex align-items-center mt-3">
+
+                    <div class="ms-auto mt-3 mt-md-0">
+                      <button type="submit" [disabled]="!updateDotForm.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
+                        <div class="d-flex align-items-center">
+                          Modifier
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <p *ngIf="successMsg" class="alert alert-success">{{ successMsg }}</p>
+            <p *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>

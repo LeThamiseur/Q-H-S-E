@@ -1,0 +1,150 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+
+    <div class="container">
+      <!-- <div *ngIf="accinc"> -->
+      <div class="contenu" *ngIf="accinc">
+        <div id="pdfContent">
+            <!-- <button type="button" (click)="goBack()">go back</button> -->
+            <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+              <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                  <h4 class="fw-semibold mb-8 text-center">{{ accinc.type | uppercase }} DECLARE</h4>
+                </div>
+              </div>
+            </div>
+              <form>
+                <div class="form-group">
+
+                  <!-- ligne horizontale  -->
+                  <div class="border-bottom mb-4"></div>
+                  <p><i>Renseignements sur la victime</i></p>
+
+                  <!-- renseignements sur la victime start -->
+                  <div class="row mb-3">
+                    <!-- info perso start -->
+                    <div class="col">
+                      <div class="row">
+                        <div class="col-md-6 form-group mb-2">
+                          <label for="lieu" class="form-label">Nom de la victime</label>
+                          <p>{{ accinc.victime }}</p>
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="matricule" class="form-label" >Matricule</label>
+                            <p>{{ accinc.matricule }}</p>
+                        </div>
+                        <div class="col-md-6 form-group">
+
+                            <label for="text" class="form-label" >Service</label>
+                            <p>{{ accinc.service }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                          <label for="poste" class="form-label" >Poste</label>
+                          <p>{{ accinc.poste }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- info perso end -->
+
+                    <!-- type de contrat start -->
+                    <div class="col text-center">
+                      <label for="contrat" class="form-label" >TYpe de contrat</label>
+                          <p>{{ accinc.contract }}</p>
+                    </div>
+                    <!-- type de contrat end -->
+
+                  </div>
+                  <!-- renseignements sur la victime end -->
+
+                  <!-- ligne horizontale  -->
+                  <div class="border-bottom mb-3"></div>
+                  <!-- Renseignements sur l'accident/incident -->
+                  <p><i>Renseignements sur l'{{accinc.type}}</i></p>
+
+                  <div class="row mb-3">
+                    <!-- info AccInc start -->
+                    <div class="col">
+                      <div class="row">
+                        <div class="col-md-6 form-group mb-2">
+                          <label for="nature" class="form-label">Nature  : </label>
+                          <p>{{ accinc.nature }}</p>
+                        </div>
+
+                        <div class="col-md-6 mb-2 form-group">
+                          <label for="date" class="form-label">Date </label>
+                          <p>{{ accinc.dateAccident }}</p>
+                        </div>
+                        <div class="col-md-6 form-group">
+                          <label for="lieu" class="form-label">Lieu</label>
+                          <p>{{ accinc.locationAccident }}</p>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                          <label for="heure" class="form-label">Heure</label>
+                          <p>{{ accinc.timeAccident }}</p>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                          <label for="dommage" class="form-label">Dommange</label>
+                          <p>{{ accinc.dommage }}</p>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="col text-center">
+                      <div>
+                        <label for="consequence" class="form-label" >Consequence</label>
+                        <p>{{ accinc.consequence }}</p>
+                      </div>
+                      <div>
+                        <label for="Tache" class="form-label">Tâche en cours</label>
+                        <p>{{ accinc.task }}</p>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label for="description" class="form-label">Description</label>
+                  <p>{{accinc.description }}</p>
+                </div>
+
+                <!-- ligne horizontale  -->
+                <div class="border-bottom mb-3"></div>
+                <p><i>intiatives | identification d'un témoin</i></p>
+
+                <div class="row mb-3">
+                  <!-- info perso start -->
+                  <div class="col">
+                    <div class="row">
+                      <div class="col-md-6 form-group mb-2">
+                        <label for="mesure" class="form-label" >Mesures prises à l'instant</label>
+                        <p>{{ accinc.measure }}</p>
+                      </div>
+
+                      <div class="col-md-6 form-group mb-2">
+                        <label for="nom_temoin" class="form-label" >témoin</label>
+                        <p>{{ accinc.witness }}</p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- ============================== -->
+              </form>
+
+        </div>
+          <button type="button" class="btn btn-primary" (click)="downloadForm()">télécharger</button>
+      </div>
+
+    </div>
+
+</div>

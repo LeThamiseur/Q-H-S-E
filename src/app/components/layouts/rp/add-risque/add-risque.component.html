@@ -1,0 +1,124 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Risques prévisibles</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="text-muted" routerLink="/RP"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><i>Ajouter un risque</i></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!-- formulaire d'ajout risque -->
+        <div class="card">
+          <!-- Message de succès ou d'erreur -->
+          <div *ngIf="msg" class="alert" [ngClass]="{'alert-success': !isError, 'alert-danger': isError}">
+            {{ msg }}
+          </div>
+          <div class="card-body">
+            <h5 class="mb-3">Informations sur le risque</h5>
+            <form (ngSubmit)="onSubmit()" #riskForm="ngForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="risque" placeholder="risque"
+                    [(ngModel)]="newRisk.label" required name="nomR"
+                        #risk = "ngModel"
+                        [ngClass]="{'is-invalid': risk.touched && !risk.valid}"
+                        required
+                    />
+                    <label for="risque">Risque</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="f_expo" placeholder="Fréquence d'exposition (F)"
+                     [(ngModel)]="newRisk.frequency" required name="frequence"
+                     #freq = "ngModel"
+                        [ngClass]="{'is-invalid': freq.touched && !freq.valid}"
+                        min="1"
+                        max="4"
+                        required
+                     />
+                    <label for="f_expo">Fréquence d'exposition (F)</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="gravity" placeholder="Gravité"
+                     [(ngModel)]="newRisk.gravity" required name="gravity"
+                        #grav = "ngModel"
+                        [ngClass]="{'is-invalid': grav.touched && !grav.valid}"
+                        min="1"
+                        max="4"
+                        required
+                      />
+                    <label for="gravity">Gravité</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <textarea class="form-control" id="preventiveMes" rows="3" placeholder="Décrire une mesure"
+                     [(ngModel)]="newRisk.measure" name="preventiveMes"
+                          #prev = "ngModel"
+                          [ngClass]="{'is-invalid': prev.touched && !prev.valid}"
+                          required></textarea>
+                    <label for="preventiveMes">Mesures Préventives</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="selectNames">Choisissez une situation</label>
+                  <ng-select class="form-control"
+                             [items]="situationDList"
+                             bindLabel="label"
+                             [(ngModel)]="selectedSituation"
+                             name="situation"
+                             [searchable]="true"
+                             #sitD = "ngModel"
+                            [ngClass]="{'is-invalid': sitD.touched && !sitD.valid}"
+                             required>
+                  </ng-select>
+                </div>
+
+                <div class="col-12">
+                  <div class="d-md-flex align-items-center mt-3">
+
+                    <div class="ms-auto mt-3 mt-md-0">
+                      <button type="submit" [disabled]="!riskForm.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
+                        <div class="d-flex align-items-center">
+                          Ajouter
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>

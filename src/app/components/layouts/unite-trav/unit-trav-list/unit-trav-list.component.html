@@ -1,0 +1,161 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+    <app-sidebar></app-sidebar>
+    <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Unité de travail</h4>
+
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card w-100 position-relative overflow-hidden">
+          <div class="px-4 py-3 border-bottom col">
+            <div class="row">
+              <div class="col">
+                <!-- <a type="button" routerLink="/uniteTrav/add_UT" class="btn btn-outline-primary mx-1 "><i class="fa-solid fa-plus me-2"></i>Enregistrer une unité de travail</a>
+                <a type="button" routerLink="/uniteTrav/add_task" class="btn btn-outline-primary mx-1 "><i class="fa-solid fa-plus me-2"></i>Ajouter une tâche</a> -->
+                <a routerLink="/uniteTrav/add_UT" class="btn btn-outline-info mx-1">
+                  <i class="fa-solid fa-plus me-2"></i> Enregister Unité de travail
+                </a>
+                <a routerLink="/uniteTrav/tasks" class="btn btn-outline-info mx-1">
+                  <i class="ti ti-eye fs-5"></i> Tâches
+                </a>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <input type="text" class="form-control mx-1" placeholder="Rechercher ..." #searchDec>
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Rechercher</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p *ngIf="msg" class="alert alert-success">{{ msg }}</p>
+          <p *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</p>
+          <div class="card-body p-4">
+              <div class="table-responsive rounded-2 mb-4 table-wrapper">
+                <!-- tableau d'accident /incident -->
+                <table class="table border text-nowrap customize-table mb-0 align-middle">
+                  <thead class="text-dark fs-4">
+                    <tr>
+                      <th><h6 class="fs-4 fw-semibold mb-0">#</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Unité</h6></th>
+                      <!-- <th><h6 class="fs-4 fw-semibold mb-0">Victime</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Status</h6></th> -->
+                      <th><h6 class="fs-4 fw-semibold mb-0">Action</h6></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let unite of uniteTravList; let i = index">
+                      <td>
+                        {{i+1}}
+                      </td>
+                      <!-- <td><p class="mb-0 fw-normal">a</p></td>
+                      <td>
+                        a
+                      </td> -->
+                      <td>
+                        {{unite.name}}
+                      </td>
+                      <td>
+                        <div class="dropdown dropstart">
+                          <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-6"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <!-- <li>
+                              <a href="javascript:void(0)" class="dropdown-item d-flex align-items-center gap-3"><i class="fa-solid fa-plus me-2"></i>tâche</a>
+                            </li> -->
+
+                            <a href="javascript:void(0)" (click)="showTasks(unite)" class="text-info dropdown-item d-flex align-items-center gap-3" data-bs-toggle="modal" data-bs-target="#addContactModal"><i class="ti ti-eye fs-5"></i>voir </a>
+
+                            <!-- <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/"><i class="fa-regular fa-eye"></i>Voir</a>
+                            </li> -->
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/uniteTrav/edit_UT/{{unite.id}}"><i class="fs-4 ti ti-edit"></i>Modifier</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0)" (click)="delete(unite)" class="dropdown-item d-flex align-items-center gap-3 text-danger"><i class="fs-4 ti ti-trash"></i> Supprimer</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="addContactModalTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content bg-white">
+                            <div class="modal-header d-flex align-items-center">
+                              <h5 class="modal-title">{{ selectedUnit?.name }}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="add-contact-box">
+                                <div class="add-contact-content">
+
+
+                                    <table class="table border text-nowrap customize-table mb-0 align-middle">
+                                      <thead class="text-dark fs-4">
+                                        <tr>
+                                          <th><h6 class="fs-4 fw-semibold mb-0">#</h6></th>
+                                          <th><h6 class="fs-4 fw-semibold mb-0">Tâches</h6></th>
+                                          <th><h6 class="fs-4 fw-semibold mb-0"></h6></th>
+
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let task of taskList; let i = index">
+                                          <th>
+                                            {{ i+1 }}
+                                          </th>
+                                          <td>
+                                            {{ task.name }}
+                                          </td>
+
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+
+                              <button class="btn btn-outline-primary rounded-pill px-4" data-bs-dismiss="modal"> Fermer </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </tr>
+                  </tbody>
+
+                  <!-- Button trigger modal -->
+                  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContactModal">
+                    Launch demo modal
+                  </button> -->
+
+
+
+                </table>
+                <!-- ================================== -->
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>

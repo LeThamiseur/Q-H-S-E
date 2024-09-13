@@ -1,0 +1,74 @@
+<div class="menu-icon d-lg-none d-block" (click)="toggleSidebar()">
+  <!-- <i class="ti ti-menu fs-8"></i> -->
+  <i class="ti ti-menu-2"></i>
+</div>
+
+<aside class="sidebar">
+  <div class="brand-logo d-flex align-items-center justify-content-between">
+    <a routerLink="/home" class="text-nowrap logo-img">
+      <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
+      <!-- <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" /> -->
+    </a>
+    <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+      <i class="ti ti-x fs-8"></i>
+    </div>
+  </div>
+
+  <nav>
+    <ul class="menu">
+      <li>
+        <button class="menu-heading" routerLink="/home" [class.active-parent]="activeMenu === 'home'">Accueil</button>
+      </li>
+      <li>
+        <button class="menu-heading" (click)="toggleMenu('incidents')" [class.active-parent]="activeMenu === 'incidents'">Gestion des incidents</button>
+        <ul class="submenu" [ngClass]="{'show': activeMenu === 'incidents'}">
+          <li>
+            <a routerLink="/evenements" routerLinkActive="router-link-active" (click)="setActiveMenu('incidents')">Évènements</a>
+          </li>
+          <li>
+            <a routerLink="/plan_action" routerLinkActive="router-link-active" (click)="setActiveMenu('incidents')">Plan d'action</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="menu-heading" (click)="toggleMenu('equipements')" [class.active-parent]="activeMenu === 'equipements'">Gérer équipements</button>
+        <ul class="submenu" [ngClass]="{'show': activeMenu === 'equipements'}">
+          <li>
+            <a routerLink="/equipement" routerLinkActive="router-link-active" (click)="setActiveMenu('equipements')">Équipements</a>
+          </li>
+          <li>
+            <a routerLink="/dotation" routerLinkActive="router-link-active" (click)="setActiveMenu('equipements')">Dotation</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="menu-heading" (click)="toggleMenu('duer')" [class.active-parent]="activeMenu === 'duer'">DUER</button>
+        <ul class="submenu" [ngClass]="{'show': activeMenu === 'duer'}">
+          <li>
+            <a routerLink="/SD" routerLinkActive="router-link-active" (click)="setActiveMenu('duer')">Situations dangereuses</a>
+          </li>
+          <li>
+            <a routerLink="/RP" routerLinkActive="router-link-active" (click)="setActiveMenu('duer')">Risques</a>
+          </li>
+          <li>
+            <a routerLink="/uniteTrav" routerLinkActive="router-link-active" (click)="setActiveMenu('duer')">Unité de travail</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="menu-heading" (click)="toggleMenu('Suivie des projets')" [class.active-parent]="activeMenu === 'Suivie des projets'">Gestion des projets</button>
+        <ul class="submenu" [ngClass]="{'show': activeMenu === 'Suivie des projets'}">
+          <li>
+            <a routerLink="/Habilitations" routerLinkActive="router-link-active" (click)="setActiveMenu('duer')">Gestion des habilitations</a>
+          </li>
+          <li>
+            <a routerLink="/Fournisseurs" routerLinkActive="router-link-active" (click)="setActiveMenu('duer')">Gestion des fournisseurs</a>
+          </li>
+          <li>
+            <a routerLink="/Carto" routerLinkActive="router-link-active" (click)="setActiveMenu('duer')">Cartographie des risques</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>

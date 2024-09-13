@@ -1,0 +1,153 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Equipements</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="text-muted" routerLink="/equipement"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><i>Ajouter un équipement</i></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!-- formulaire d'ajout équipement -->
+          <div class="card">
+            <!-- Message de succès ou d'erreur -->
+            <div *ngIf="msg" class="alert" [ngClass]="{'alert-success': !isError, 'alert-danger': isError}">
+              {{ msg }}
+            </div>
+            <div class="card-body">
+              <h5 class="mb-3">Informations sur l'équipement</h5>
+              <form (ngSubmit)="addEquip()" #equipForm = "ngForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="abreviation" placeholder="Abreviation"
+                       [(ngModel)]="formData.code" name="abreviation"
+                       #abEq = "ngModel"
+                        [ngClass]="{'is-invalid': abEq.touched && !abEq.valid}"
+                        required
+                       />
+                      <label for="abreviation">Abreviation</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="description" placeholder="Désignation équipement"
+                       [(ngModel)]="formData.label" name="description"
+                       #descEq = "ngModel"
+                        [ngClass]="{'is-invalid': descEq.touched && !descEq.valid}"
+                        required
+                       />
+                      <label for="description">Désignation équipement</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                      <textarea class="form-control" id="Utility" rows="3" placeholder="Utilité de l'équipement"
+                       [(ngModel)]="formData.utility" name="Utility"
+                        #utEq = "ngModel"
+                        [ngClass]="{'is-invalid': utEq.touched && !utEq.valid}"
+                        required></textarea>
+                      <label for="Utility">Utilité de l'équipement</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="qte"
+                       [(ngModel)]="formData.quantity" name="qte"
+                        #qte = "ngModel"
+                        [ngClass]="{'is-invalid': qte.touched && !qte.valid}"
+                        min="0"
+                        required
+                       />
+                      <label for="qte">Quantité</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-md-flex align-items-center mt-3">
+
+                      <div class="ms-auto mt-3 mt-md-0">
+                        <button type="submit" [disabled]="!equipForm.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
+                            Enregister
+                        </button>
+                        <!-- <p *ngIf="msg" class="alert alert-success">{{msg}}</p> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+      </div>
+    </div>
+</div>
+
+
+
+<!-- <form (ngSubmit)="addEquip()" #equipForm = "ngForm">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="mb-3">Informations sur l'équipement</h5>
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="abreviation" placeholder="Abreviation" [(ngModel)]="formData.abreviation" name="abreviation"/>
+              <label for="abreviation">Abreviation</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="description" placeholder="Désignation équipement" [(ngModel)]="formData.designation" name="description"/>
+              <label for="description">Désignation équipement</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="Utility" rows="3" placeholder="Utilité de l'équipement" [(ngModel)]="formData.Utility" name="Utility"></textarea>
+              <label for="Utility">Utilité de l'équipement</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="qte" [(ngModel)]="formData.Quantite" name="qte"/>
+              <label for="qte">Quantité</label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="d-md-flex align-items-center mt-3">
+
+              <div class="ms-auto mt-3 mt-md-0">
+                <button type="submit" class="btn btn-info font-medium rounded-pill px-4" >
+                    Enregister
+                </button>
+                <span *ngIf="msg" class="text-success">{{msg}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</form> -->

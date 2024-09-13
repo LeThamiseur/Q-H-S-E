@@ -1,0 +1,122 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+    <app-sidebar></app-sidebar>
+    <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Unité de travail</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="text-muted" routerLink="/uniteTrav"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><i>Liste des tâches</i></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card w-100 position-relative overflow-hidden">
+          <div class="px-4 py-3 border-bottom col">
+            <div class="row">
+              <div class="col">
+                <a routerLink="/uniteTrav/add_task" class="btn btn-outline-info mx-1">
+                  <i class="fa-solid fa-plus me-2"></i> Ajouter une Tâches
+                </a>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <input type="text" class="form-control mx-1" placeholder="Rechercher ..." #searchDec>
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Rechercher</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="msg" class="alert alert-success">
+            {{ msg}}
+          </div>
+          <div class="card-body p-4">
+              <div class="table-responsive rounded-2 mb-4 table-wrapper">
+                <!-- tableau d'accident /incident -->
+                <table class="table border text-nowrap customize-table mb-0 align-middle">
+                  <thead class="text-dark fs-4">
+                    <tr>
+                      <th><h6 class="fs-4 fw-semibold mb-0">#</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Libellé</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">unité de travail</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Action</h6></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let task of taskList; let i = index">
+                      <td>
+                        {{i+1}}
+                      </td>
+
+                      <td>
+                        {{task.name}}
+                      </td>
+                      <td>
+                        {{ getWorkUnitName(task.workUnitId) }}
+                      </td>
+
+                      <td>
+                        <div class="action-btn">
+                          <a href="javascript:void(0)" class="text-info edit" routerLink="/uniteTrav/tasks/edit/{{task.id}}">
+                            <i class="fs-4 ti ti-edit"></i>
+                          </a>
+                          <a href="javascript:void(0)" class="text-danger delete ms-2" (click)="delete(task)">
+                            <i class="ti ti-trash fs-5"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- <tr
+                      <td>
+                        1
+                      </td>
+                      <td>
+                        tâche 1
+                      </td>
+                      <td>
+                        Unité A
+                      </td>
+
+                      <td>
+                        <div class="action-btn">
+                          <a href="javascript:void(0)" class="text-info edit" routerLink="/uniteTrav/tasks/edit">
+                            <i class="fs-4 ti ti-edit"></i>
+                          </a>
+                          <a href="javascript:void(0)" class="text-danger delete ms-2">
+                            <i class="ti ti-trash fs-5"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr> -->
+                  </tbody>
+
+
+                </table>
+                <!-- ================================== -->
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>

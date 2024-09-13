@@ -1,0 +1,181 @@
+
+/* Style général du sidebar */
+.sidebar {
+  width: 250px;
+  background: #343a40;
+  color: #fff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+/* Logo */
+.brand-logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Menu */
+.sidebar .menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar .menu > li {
+  padding: 10px 20px;
+}
+
+/* Liens et sous-menus */
+.sidebar .menu > li > a,
+.sidebar .menu .submenu li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.sidebar .menu .submenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.sidebar .menu .submenu.show {
+  display: block;
+}
+
+/* Style pour les boutons de menu */
+.menu-heading {
+  font-size: 16px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  color: #adb5bd;
+  /* padding: 10px 20px; */
+}
+
+/* Menu actif */
+.menu-heading.active,
+.menu-heading.active-parent {
+  color: #5D87FF;
+  font-weight: bold;
+  /* background-color: #212529; */
+  /* border: 2px solid #007bff; */
+  border-radius: 5px;
+}
+
+/* Liens actifs */
+.submenu a.router-link-active {
+  color: #007bff;
+  font-weight: bold;
+  background-color: #394b5d;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Réduire la largeur pour les écrans plus petits */
+  }
+
+  .sidebar .menu > li {
+    padding: 8px 16px;
+  }
+
+  .menu-heading {
+    font-size: 14px; /* Réduire la taille de la police pour les écrans plus petits */
+    padding: 8px 16px;
+  }
+
+  .submenu a.router-link-active {
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sidebar .menu > li {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .menu-heading {
+    width: 100%;
+    text-align: center;
+  }
+
+  .submenu {
+    padding-left: 0;
+  }
+
+  .submenu a.router-link-active {
+    display: block;
+    text-align: center;
+  }
+}
+
+/* Bouton de bascule pour les petits écrans */
+.close-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .sidebar {
+    transform: translateX(-100%); /* Masquer la sidebar par défaut */
+  }
+
+  .sidebar.show {
+    transform: translateX(0); /* Afficher la sidebar */
+  }
+}
+
+/* Style pour l'icône du menu */
+.menu-icon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  z-index: 1000; /* Assurez-vous que l'icône est au-dessus du contenu */
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Afficher l'icône de menu */
+  }
+}
+
+
+
+
+
+

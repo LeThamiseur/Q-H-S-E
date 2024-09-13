@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.contenu {
+  padding-left: 100px; /* Espace à l'intérieur du conteneur pour séparer le contenu des marges */
+  padding-top: 85px;
+  padding-bottom: 20px;
+}
+.table-wrapper {
+  max-height: 415px; /* Définir la hauteur maximale */
+  overflow-y: auto; /* Activer le défilement vertical */
+}

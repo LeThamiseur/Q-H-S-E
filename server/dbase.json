@@ -1,0 +1,368 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "MLK2",
+      "nom": "SONG",
+      "prenom": "Ménélik",
+      "fonction": "QHSE",
+      "password": "Qhse1234<"
+    },
+    {
+      "id": 2,
+      "username": "Bokoyo",
+      "nom": "Florent",
+      "prenom": "Pastu",
+      "fonction": "IT",
+      "password": "Qwerty<123"
+    },
+    {
+      "username": "LeYoung",
+      "prenom": "Franck",
+      "nom": "Erick",
+      "fonction": "QHSE",
+      "password": "Tchatcha07<",
+      "id": 3
+    },
+    {
+      "username": "B6K1",
+      "prenom": "Hans",
+      "nom": "PB",
+      "fonction": "IT",
+      "password": "bbMii@2024",
+      "id": 4
+    },
+    {
+      "username": "B6K1",
+      "prenom": "Hans",
+      "nom": "PB",
+      "fonction": "IT",
+      "password": "bbMii@2024",
+      "id": 5
+    }
+  ],
+  "acc_inc": [
+    {
+      "id": "1",
+      "nature": "Trajet",
+      "type": "incident",
+      "locationAccident": "Ndokoti",
+      "dateAccident": "2024-02-12",
+      "description": "Description de l'accident même",
+      "timeAccident": "15:20",
+      "task": "Prise de côte sur le terrain",
+      "consequence": "Sans arrêt",
+      "dommage": "Aucun",
+      "witness": "Blaise Alphonse Siani",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Sabo Marc",
+      "matricule": "BG0019",
+      "service": "Peinture",
+      "poste": "Koumassi",
+      "contract": "Intérimaire"
+    },
+    {
+      "id": "2",
+      "nature": "Trajet",
+      "type": "incident",
+      "locationAccident": "SOCAVER",
+      "dateAccident": "2024-02-12",
+      "description": "Description de l'accident même",
+      "timeAccident": "15:20",
+      "task": "Prise de côte sur le terrain",
+      "consequence": "Sans arrêt",
+      "dommage": "Aucun",
+      "witness": "Blaise Alphonse Siani",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Bassong Junior",
+      "matricule": "BG0019",
+      "service": "Peinture",
+      "poste": "Koumassi",
+      "contract": "Intérimaire"
+    },
+    {
+      "id": "3",
+      "nature": "Autre",
+      "type": "accident",
+      "locationAccident": "Ndokoti",
+      "dateAccident": "2024-04-12",
+      "description": "Description de l'incident",
+      "timeAccident": "16:20",
+      "task": "Préfabrication d'éléments constructifs",
+      "consequence": "Sans arrêt",
+      "dommage": "Humain",
+      "witness": "Etoumo steve",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Bayanack Jean Paul",
+      "matricule": "BG0025",
+      "service": "Soudure",
+      "poste": "Ndokotie",
+      "contract": "CDI"
+    },
+    {
+      "id": "4",
+      "nature": "Autre",
+      "type": "incident",
+      "locationAccident": "SOCAVER",
+      "dateAccident": "2024-04-13",
+      "description": "Description de l'incident dans tous les brefs détails",
+      "timeAccident": "16:20",
+      "task": "Préfabrication d'éléments constructifs",
+      "consequence": "Sans arrêt",
+      "dommage": "Matériel",
+      "witness": "Mahop steve",
+      "mesuresPrises": "Eloignement de la zone de danger",
+      "victime": "Bayemi Jean Paul",
+      "matricule": "BG0025",
+      "service": "Soudure",
+      "poste": "Socaver",
+      "contract": "CDI"
+    },
+    {
+      "id": "5",
+      "type": "accident",
+      "victime": "Boris DCC",
+      "matricule": "BG00203",
+      "contract": "Stagiaire",
+      "service": "Peinture",
+      "poste": "Ndokoti",
+      "nature": "Poste",
+      "timeAccident": "09:34",
+      "locationAccident": "Ndokoti",
+      "task": "revêtement des postes de soudures",
+      "consequence": "Sans arrêt",
+      "dommage": "Matériel",
+      "description": "Echafaudage bousculer involontairement par un collègue effectuant une autre tâche",
+      "mesuresPrises": "Eloignement de la zone de danger et appel des secours",
+      "witness": "Etoundi Steve",
+      "dateAccident": "2024-05-29"
+    },
+    {
+      "id": "6",
+      "victime": "Bassong Kévin",
+      "matricule": "BG0020557",
+      "contract": "CDI",
+      "service": "Peinture",
+      "poste": "Ndokoti",
+      "nature": "Poste",
+      "dateAccident": "2024-06-05",
+      "timeAccident": "09:36",
+      "locationAccident": "Ndokoti",
+      "task": "revêtement des postes de soudures",
+      "consequence": "Autre",
+      "dommage": "Aucun",
+      "description": "dcdcddddwcdcd",
+      "mesuresPrises": "Appel direct de la hiérarchie",
+      "witness": "Blaise Alphonse Siani",
+      "type": "accident"
+    }
+  ],
+  "equipements": [
+    {
+      "id": 1,
+      "abreviation": "CP",
+      "designation": "Casque de Protection",
+      "Utility": "Diminue l'impact d'un choc reçu à la tête",
+      "Quantite": 3
+    },
+    {
+      "id": 2,
+      "abreviation": "BS",
+      "designation": "Bottes de protection",
+      "Utility": "Protège les pieds des chocs ",
+      "Quantite": null
+    },
+    {
+      "id": 3,
+      "abreviation": "GP",
+      "designation": "Gant de protection",
+      "Utility": "Protège les mains des chocs, brulûre, corrosion",
+      "Quantite": 7
+    },
+    {
+      "id": 4,
+      "abreviation": "LP",
+      "designation": "Lunette de protetion",
+      "Utility": "Protège les yeux contre les éteincelles et fortes lumières",
+      "Quantite": 0
+    },
+    {
+      "id": 5,
+      "abreviation": "EQtest",
+      "designation": "Equipement de test",
+      "Utility": "xdvdd",
+      "Quantite": 0
+    }
+  ],
+  "dangers": [
+    {
+      "id": 1,
+      "libelle": "Chutes de hauteur",
+      "description": "Travailler sur des échafaudages, des toits ou des échelles sans protection(s) adéquate(s)",
+      "risques": [
+        {
+          "id": 1,
+          "nomR": "Chutes",
+          "frequence": 2,
+          "gravity": 2,
+          "preventiveMes": " mesures "
+        },
+        {
+          "id": 2,
+          "nomR": "Blessures",
+          "frequence": 4,
+          "gravity": 3,
+          "preventiveMes": " mesures "
+        },
+        {
+          "nomR": "test",
+          "frequence": 1,
+          "gravity": 1,
+          "preventiveMes": "dffdd",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "libelle": "Exposition à des produits chimiques",
+      "description": "Manipulation de substances toxiques sans protection.",
+      "risques": [
+        {
+          "id": 1,
+          "nomR": "Intoxication",
+          "frequence": 2,
+          "gravity": 3,
+          "preventiveMes": " mesures "
+        },
+        {
+          "id": 2,
+          "nomR": "Brûlures chimiques",
+          "frequence": 1,
+          "gravity": 3,
+          "preventiveMes": " mesures "
+        }
+      ]
+    },
+    {
+      "risques": [
+        {
+          "nomR": "Brûlure, blessures, coupures",
+          "frequence": 2,
+          "gravity": 4,
+          "preventiveMes": "Port des EPIs nécessaires et adéquats au poste de travail (casques, lunettes et chaussures de sécurité, masque de protection, bouchon d'oreilles, tenue de travail, cagoule, gants, ...",
+          "id": 1
+        }
+      ],
+      "libelle": "Débitage et meulage des éléments",
+      "description": "les éléments peuvent se mélanger lors de la préfabrication",
+      "id": 3
+    }
+  ],
+  "dotations": [
+    {
+      "id": 1,
+      "date": "2023-06-11",
+      "nom_beneficiaire": "Jean Dupont",
+      "service": "Tyauterie",
+      "fonction": "Technicien",
+      "metier": "Support",
+      "retour": true,
+      "dateR": "2023-06-17",
+      "id_Equi": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2023-06-12",
+      "nom_beneficiaire": "Marie Curie",
+      "service": "Recherche",
+      "fonction": "Scientifique",
+      "metier": "Chimie",
+      "retour": true,
+      "dateR": "2023-06-17",
+      "id_Equi": [
+        1,
+        3
+      ]
+    },
+    {
+      "id_Equi": [
+        1,
+        3
+      ],
+      "service": "Tyauterie",
+      "date": "2024-06-13",
+      "nom_beneficiaire": "Tamo Boris",
+      "fonction": "Chef de site",
+      "metier": "Soudure",
+      "retour": false,
+      "dateR": "",
+      "id": 3
+    },
+    {
+      "retour": true,
+      "dateR": "2023-06-17",
+      "id_Equi": [
+        1,
+        2
+      ],
+      "service": "Tyauterie",
+      "date": "2024-06-15",
+      "nom_beneficiaire": "Zambo Steve",
+      "fonction": "Chef de site",
+      "metier": "Soudure",
+      "id": 4
+    },
+    {
+      "retour": false,
+      "dateR": "",
+      "id_Equi": [
+        1,
+        2
+      ],
+      "service": "Soudure",
+      "date": "2024-06-25",
+      "nom_beneficiaire": "Olomo Jean",
+      "fonction": "Chef de site",
+      "metier": "Soudure",
+      "id": 5
+    },
+    {
+      "retour": false,
+      "dateR": "",
+      "id_Equi": [
+        null,
+        null
+      ],
+      "service": "Peinture",
+      "nom_beneficiaire": "test",
+      "metier": "test",
+      "fonction": "test",
+      "date": "2024-08-09",
+      "id": 6
+    }
+  ],
+  "Unite_Travail": [
+    {
+      "id": 1,
+      "name": "Unité A",
+      "id_DocU": 1
+    },
+    {
+      "id": 2,
+      "name": "Unité B",
+      "id_DocU": 2
+    }
+  ],
+  "Doc_U": [
+    {
+      "id": 1,
+      "nom_DocU": "DUER Entreprise"
+    }
+  ]
+}

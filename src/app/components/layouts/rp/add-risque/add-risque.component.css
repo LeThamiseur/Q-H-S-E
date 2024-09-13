@@ -1,0 +1,16 @@
+/* Rendre la liste des options scrollable */
+.ng-select .ng-dropdown-panel {
+  max-height: 200px; /* Limite la hauteur maximale */
+  overflow-y: auto;  /* Active le défilement vertical */
+}
+
+/* Style pour les options */
+.ng-select .ng-dropdown-panel .ng-option {
+  padding: 0.5rem; /* Padding pour les options */
+  cursor: pointer; /* Change le curseur pour pointer */
+}
+
+/* Style pour les options survolées */
+.ng-select .ng-dropdown-panel .ng-option:hover {
+  background-color: #e9ecef; /* Couleur de fond au survol */
+}

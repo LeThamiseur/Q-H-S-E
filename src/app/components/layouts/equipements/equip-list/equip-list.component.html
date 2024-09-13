@@ -1,0 +1,99 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Equipements</h4>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card w-100 position-relative overflow-hidden">
+          <div class="px-4 py-3 border-bottom col">
+            <div class="row">
+              <div class="col">
+                <a type="button" routerLink="/equipement/addEquip" class="btn btn-outline-primary mx-1 "><i class="fa-solid fa-plus me-2"></i>Ajouter un équipement</a>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <input type="text" class="form-control mx-1" placeholder="Rechercher un équip..." #searchEqui>
+                  <div class="input-group-append">
+                    <!-- <button class="btn btn-primary" type="button"
+                      (click)="filterResults(searchEqui.value)">
+                      Rechercher
+                    </button> -->
+                    <button class="btn btn-primary" type="button">
+                      Rechercher
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p *ngIf="msg" class="alert alert-success">{{ msg }}</p>
+          <p *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</p>
+
+          <div class="card-body p-4">
+              <div class="table-responsive rounded-2 mb-4 table-wrapper">
+                <!-- tableau d'accident /incident -->
+                <table class="table border text-nowrap customize-table mb-0 align-middle">
+                  <thead class="text-dark fs-4">
+                    <tr>
+                      <th><h6 class="fs-4 fw-semibold mb-0">#</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Equipement</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Désignation</h6></th>
+                      <th><h6 class="fs-4 fw-semibold mb-0">Action</h6></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr *ngFor="let equipement of filteredEquipementList; let i = index"> -->
+                    <tr *ngFor="let equipement of equipementList; let i = index">
+                      <td>
+                        {{i+1}}
+                      </td>
+                      <td><p class="mb-0 fw-normal">{{equipement.code}}</p></td>
+                      <td>
+                        {{equipement.label}}
+                      </td>
+                      <td>
+                        <div class="dropdown dropstart">
+                          <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-6"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/equipement/detail/{{equipement.id}}"><i class="fa-solid fa-circle-info"></i>Aperçu</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" routerLink="/equipement/edit_equip/{{equipement.id}}"><i class="fs-4 ti ti-edit"></i>Modifier</a>
+                            </li>
+                            <li>
+                              <a href="javascript: void(0)" class="dropdown-item d-flex align-items-center gap-3" (click)="delete(equipement)"><i class="fs-4 ti ti-trash"></i>Supprimer</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- ================================== -->
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>

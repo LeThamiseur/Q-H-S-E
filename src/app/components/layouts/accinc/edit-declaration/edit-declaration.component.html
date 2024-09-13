@@ -1,0 +1,252 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+    <app-sidebar></app-sidebar>
+    <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">ACCIDENT / INCIDENT</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="text-muted" routerLink="/evenements"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><i>MODIFIER ACCIDENT / INCIDENT</i></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <P class="text-center">(Ce formulaire est à remplir immédiatement après l'{{accinc.nom_AccInc}})</P> -->
+      <form [formGroup]="accincForm" (ngSubmit)="save()">
+        <div class="form-group">
+          <!-- choix d'accident / incident start  -->
+          <div class="row mt-5 mb-3">
+
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="type" value="accident"
+                  [ngClass]="{'is-invalid': accincForm.get('type')?.touched && accincForm.get('type')?.invalid}">
+                  <label class="form-check-label form-label">
+                    ACCIDENT
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="type" value="incident"
+                  [ngClass]="{'is-invalid': accincForm.get('type')?.touched && accincForm.get('type')?.invalid}">
+                  <label class="form-check-label form-label">
+                    INCIDENT
+                  </label>
+                </div>
+              </div>
+          </div>
+          <!-- choix d'accident / incident End  -->
+
+          <!-- ligne horizontale  -->
+          <div class="border-bottom mb-4"></div>
+          <p><i>Renseignements sur la victime</i></p>
+
+          <!-- renseignements sur la victime start -->
+          <div class="row mb-3">
+            <!-- info perso start -->
+            <div class="col">
+              <div class="row">
+                <div class="col-md-6 mb-2">
+                  <div class="form-group">
+                    <label for="nomV" class="form-label">Nom </label>
+                    <input id="nomV" type="text" class="form-control" formControlName="victime" placeholder="Nom et prénom de la victime"
+                    [ngClass]="{'is-invalid': accincForm.get('victime')?.touched && accincForm.get('victime')?.invalid}">
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                  <div class="form-group">
+                    <label for="matricule" class="form-label">Matricule</label>
+                    <input id="matricule" type="text" class="form-control" formControlName="matricule"  placeholder="Matricule"
+                    [ngClass]="{'is-invalid': accincForm.get('matricule')?.touched && accincForm.get('matricule')?.invalid}"
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="service" class="form-label">Service</label>
+                    <input id="service" type="text" class="form-control" formControlName="service" name="service" placeholder="Service"
+                    [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                    >
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="poste" class="form-label">Poste</label>
+                    <input id="poste" type="text" class="form-control" formControlName="poste" name="poste" placeholder="Poste"
+                    [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- info perso end -->
+
+            <!-- type de contrat start -->
+            <div class="col text-center">
+              <label for="contrat" class="form-label">Type de contrat</label>
+            <select id="contrat" class="form-select" formControlName="contract"
+            [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}">
+              <option value="" disabled>--- Type de contrat ---</option>
+              <option value="CDD">CDD</option>
+              <option value="CDI">CDI</option>
+              <option value="Intérimaire">Intérimaire</option>
+              <option value="Stagiaire">Stagiaire</option>
+            </select>
+            </div>
+            <!-- type de contrat end -->
+
+          </div>
+          <!-- renseignements sur la victime end -->
+
+          <!-- ligne horizontale  -->
+          <div class="border-bottom mb-3"></div>
+        </div>
+        <!-- Renseignements sur l'accident/incident -->
+        <p><i>Renseignements sur l'{{accincForm.get('type')?.value}}</i></p>
+
+        <div class="row mb-3">
+          <!-- hhhhhhh -->
+              <div class="row">
+                <div class="col-md-6 form-group mb-2">
+                  <label for="nature" class="form-label">Nature</label>
+                  <select id="nature" class="form-select" aria-label="Default select example" formControlName="nature" name="nature"
+                  [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                  >
+                    <option value="" disabled>--- Nature de l'accident ---</option>
+                    <option value="Poste">Poste</option>
+                    <option value="Trajet">Trajet</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6 form-group mb-2">
+                  <label for="date" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="date" formControlName="dateAccident" name="date"
+                  [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                  >
+                </div>
+
+              <div class="col-md-6 form-group mb-2">
+                  <label for="heure" class="form-label">Heure</label>
+                  <input type="time" class="form-control" id="heure" formControlName="timeAccident" name="heure"
+                  [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                  >
+              </div>
+
+              <div class="col-md-6 form-group mb-2">
+                  <label for="lieu" class="form-label">Lieu</label>
+                  <input type="text" class="form-control" formControlName="locationAccident" name="lieu" id="lieu" placeholder="Entrez le lieu"
+                  [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                  >
+              </div>
+
+              <div class="col-md-6 form-group mb-2">
+                <label for="tache" class="form-label">Tâche en cours</label>
+                <input type="text" class="form-control" formControlName="task" name="tache" id="tache" placeholder="Tâche "
+                [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                >
+            </div>
+
+            <div class="col-md-6 form-group mb-2">
+              <label for="consequence" class="form-label">Conséquence</label>
+              <select id="consequence" class="form-select" aria-label="Default select example" formArrayName="consequence" name="consequence"
+              [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+              >
+                <option value="" disabled>--- choisir la conséquence ---</option>
+                <option value="Poste">Arrêt des travaux</option>
+                <option value="Sans arrêt">Sans arrêt</option>
+                <option value="Décès">Décès</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 form-group mb-2">
+              <label for="dommage" class="form-label">Dommage</label>
+              <select id="dommage" class="form-select" aria-label="Default select example" formArrayName="dommage" name="dommage"
+              [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+              >
+                <option value="" disabled>--- Choisir le dommage ---</option>
+                <option value="Matériel">Matériel</option>
+                <option value="Humain">Humain</option>
+                <option value="Matériel et Humain">Matériel et Humain</option>
+                <option value="Aucun">Aucun</option>
+              </select>
+            </div>
+
+            </div>
+          <!-- hhhhhhh -->
+
+        </div>
+
+
+        <div class="form-group mb-4">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" formControlName="description" name="description" id="description" rows="3" placeholder="Entrez une description "
+          [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+          ></textarea>
+        </div>
+
+        <!-- mesures prises et identification témoin -->
+        <p><i>Mesures prises et identification d'un témoin</i></p>
+
+        <div class="row mb-3">
+              <div class="row">
+                <div class="col-md-6 form-group mb-2">
+                    <label for="mesuresPrises" class="form-label">Mesures prises à l'immédiat</label>
+                    <input type="text" class="form-control" formControlName="measure" name="mesuresPrises" id="mesuresPrises"
+                    [ngClass]="{'is-invalid': accincForm.get('service')?.touched && accincForm.get('service')?.invalid}"
+                    >
+                </div>
+
+                <div class="col-md-6 form-group mb-2">
+                    <label for="temoin" class="form-label">Nom et prénom du témoin</label>
+                    <input type="text" class="form-control" formControlName="witness" name="temoin" id="temoin"
+
+                    >
+                </div>
+
+              </div>
+
+        </div>
+
+
+
+        <button type="submit" [disabled]="!accincForm.valid"  class="btn btn-primary">Modifier</button>
+      </form>
+
+      <span *ngIf="msg" class="text-success">{{msg}}</span>
+
+      <!-- =========== -->
+
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

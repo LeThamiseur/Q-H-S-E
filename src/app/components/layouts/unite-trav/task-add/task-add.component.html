@@ -1,0 +1,123 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Unité de travail</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="text-muted" routerLink="/uniteTrav/tasks"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><i>Ajouter Une tâche</i></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!-- formulaire d'ajout équipement -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="mb-3">Tâche</h5>
+              <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name" placeholder="name"
+                             formControlName="name"
+                             [ngClass]="{'is-invalid': form.get('name')?.touched && form.get('name')?.invalid}"/>
+                      <label for="name">Libellé de la tâche</label>
+                      <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-danger">
+                        Ce champ ne peut être vide
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <select class="form-select" aria-label="Default select example"
+                              formControlName="workUnitId"
+                              [ngClass]="{'is-invalid': form.get('workUnitId')?.touched && form.get('workUnitId')?.invalid}">
+                              <option disabled selected value="">-----</option>
+                              <option *ngFor="let unit of workUnits" [value]="unit.id">{{ unit.name }}</option>
+                      </select>
+                      <label for="ut">Unité de travail</label>
+                      <div *ngIf="form.get('workUnitId')?.touched && form.get('workUnitId')?.invalid" class="text-danger">
+                        Ce champ ne peut être vide
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-md-flex align-items-center mt-3">
+                      <div class="ms-auto mt-3 mt-md-0">
+                        <button class="btn btn-info font-medium rounded-pill px-4">
+                          Enregister
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form> -->
+              <div *ngIf="msg" class="alert alert-success">
+                {{ msg}}
+              </div>
+
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name" placeholder="Libellé de la tâche"
+                             formControlName="name" [ngClass]="{'is-invalid': form.get('name')?.touched && form.get('name')?.invalid}" />
+                      <label for="name">Libellé de la tâche</label>
+                      <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-danger">
+                        Ce champ ne peut être vide
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <select class="form-select" aria-label="Unité de travail"
+                              formControlName="workUnitId" [ngClass]="{'is-invalid': form.get('workUnitId')?.touched && form.get('workUnitId')?.invalid}">
+                        <option disabled selected value="">-----</option>
+                        <option *ngFor="let unit of workUnits" [value]="unit.id">{{ unit.name }}</option>
+                      </select>
+                      <label for="ut">Unité de travail</label>
+                      <div *ngIf="form.get('workUnitId')?.touched && form.get('workUnitId')?.invalid" class="text-danger">
+                        Ce champ ne peut être vide
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-md-flex align-items-center mt-3">
+                      <div class="ms-auto mt-3 mt-md-0">
+                        <button  class="btn btn-info font-medium rounded-pill px-4">
+                          Enregistrer
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="page-wrapper" id="main-wrapper" data-theme="blue_theme"  data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- navigation -->
+  <app-sidebar></app-sidebar>
+  <app-horizontalbar></app-horizontalbar>
+
+    <div class="container">
+      <div class="contenu">
+
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h4 class="fw-semibold mb-8">Unité de travail</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="text-muted" routerLink="/uniteTrav"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page"><i>Ajouter unite travail</i></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                <div class="text-center mb-n5">
+                  <img src="assets/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message de succès ou d'erreur -->
+
+        <ng-container *ngIf = 'errMsg'>
+          <div class="alert alert-danger">
+            {{errMsg}}
+          </div>
+        </ng-container>
+        <!-- <div *ngIf="msg" class="alert" [ngClass]="{'alert-success': !isError, 'alert-danger': isError}">
+          {{ msg }}
+        </div> -->
+
+          <!-- formulaire d'ajout unité -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="mb-3">Informations sur l'unité de travail</h5>
+              <!-- <form novalidate (ngSubmit)="addUnite(formDirective)" #formDirective="ngForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name" placeholder="name" [(ngModel)]="formData.name" name="unite" required
+                      #UnitName = "ngModel"
+                      [ngClass]="{'is-invalid': UnitName.touched && !UnitName.valid}">
+                      <label for="name">Nom de l'unité</label>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-md-flex align-items-center mt-3">
+
+                      <div class="ms-auto mt-3 mt-md-0">
+                        <button type="submit" [disabled]="!formDirective.form.valid" class="btn btn-info font-medium rounded-pill px-4" >
+                            Enregister
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form> -->
+
+
+
+              <form [formGroup]="formData" (ngSubmit)="addUnite()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name" placeholder="Nom de l'unité" formControlName="name"
+                        [ngClass]="{'is-invalid': formData.get('name')?.touched && formData.get('name')?.invalid}">
+                      <label for="name">Nom de l'unité</label>
+                      <div *ngIf="formData.get('name')?.touched && formData.get('name')?.invalid" class="invalid-feedback">
+                        Le nom de l'unité est requis.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-md-flex align-items-center mt-3">
+                      <div class="ms-auto mt-3 mt-md-0">
+                        <button type="submit" [disabled]="formData.invalid" class="btn btn-info font-medium rounded-pill px-4">
+                          Enregistrer
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+</div>

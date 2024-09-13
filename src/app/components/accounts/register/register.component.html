@@ -1,0 +1,110 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="position-relative overflow-hidden radial-gradient min-vh-100">
+    <div class="position-relative z-index-5">
+      <div class="row">
+        <div class="col-xl-7 col-xxl-8">
+          <a href="index.html" class="text-nowrap logo-img d-block px-4 py-9 w-100">
+            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" width="180" alt="">
+          </a>
+          <div class="d-none d-xl-flex align-items-center justify-content-center" style="height: calc(100vh - 80px);">
+            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/backgrounds/login-security.svg" alt="" class="img-fluid" width="500">
+          </div>
+        </div>
+        <div class="col-xl-5 col-xxl-4">
+          <div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+            <div class="col-sm-8 col-md-6 col-xl-9">
+              <h2 class="mb-3 fs-7 fw-bolder">Welcome to Modernize</h2>
+              <div class="position-relative text-center my-4">
+                <p class="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative"></p>
+                <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
+              </div>
+              <form novalidate (ngSubmit)="saveUser(registerForm)" #registerForm = "ngForm">
+                <div *ngIf="msg" class="alert text-success">
+                  {{ msg }}
+                </div>
+                <!-- username -->
+                <div class="mb-3">
+                  <label for="username" class="form-label">Nom d'utilisateur</label>
+                  <input type="text" class="form-control" id="username" aria-describedby="textHelp"
+                    [(ngModel)]="user.username" name="username" required minlength="4"
+                    #usernamevar="ngModel"
+                    [ngClass]="{'is-invalid': usernamevar.touched && !usernamevar.valid}">
+                  <div class="invalid-feedback">
+                    <span *ngIf="usernamevar.errors?.['required']">Veuillez entrer un nom d'utilisateur</span>
+                    <span *ngIf="usernamevar.errors?.['minlength']">Minimum 4 caractères</span>
+                  </div>
+                </div>
+
+                <!-- Prénom -->
+                <div class="mb-3">
+                  <label for="prenom" class="form-label">Prénom</label>
+                  <input type="text" class="form-control" id="prenom" aria-describedby="textHelp"
+                    [(ngModel)]="user.prenom" name="prenom" required
+                    #prenomvar="ngModel"
+                    [ngClass]="{'is-invalid': prenomvar.touched && !prenomvar.valid}">
+                  <div class="invalid-feedback">
+                    <span *ngIf="prenomvar.errors?.['required']">Veuillez entrer un prénom</span>
+                  </div>
+                </div>
+
+                 <!-- Nom -->
+                 <div class="mb-3">
+                  <label for="nom" class="form-label">Nom</label>
+                  <input type="text" class="form-control" id="nom" aria-describedby="textHelp"
+                    [(ngModel)]="user.nom" name="nom" required
+                    #nomvar="ngModel"
+                    [ngClass]="{'is-invalid': nomvar.touched && !nomvar.valid}">
+                  <div class="invalid-feedback">
+                    <span *ngIf="nomvar.errors?.['required']">Veuillez entrer un nom</span>
+                  </div>
+                </div>
+
+                 <!-- Fonction -->
+                 <div class="mb-3">
+                  <label for="function" class="form-label">Fonction</label>
+                  <input type="text" class="form-control" id="function" aria-describedby="textHelp"
+                    [(ngModel)]="user.fonction" name="fonction" required
+                    #fonctionvar="ngModel"
+                    [ngClass]="{'is-invalid': fonctionvar.touched && !fonctionvar.valid}">
+                  <div class="invalid-feedback">
+                    <span *ngIf="fonctionvar.errors?.['required']">Veuillez entrer une fonction</span>
+                  </div>
+                </div>
+
+                 <!-- Password -->
+                 <div class="mb-4">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="exampleInputPassword1"
+                    [(ngModel)]="user.password" name="password" required minlength="8"
+                    pattern="(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{1,}"
+                    #passwordvar="ngModel"
+                    [ngClass]="{'is-invalid': passwordvar.touched && !passwordvar.valid}">
+                    <i class="fa-regular fa-eye mx-1 mt-2"
+                      (click)="togglePasswordVisibility()"
+                      [class.fa-eye-slash]="showPassword"
+                      [class.fa-eye]="!showPassword">
+                    </i>
+                  <div class="invalid-feedback">
+                    <span *ngIf="passwordvar.errors?.['required']">Veuillez entrer un mot de passe</span>
+                    <span *ngIf="passwordvar.errors?.['minlength']">Le mot de passe doit contenir au moins 8 caractères</span>
+                    <span *ngIf="passwordvar.errors?.['pattern']">
+                      Le mot de passe doit contenir au moins une lettre majuscule, un chiffre et un caractère spécial
+                    </span>
+                  </div>
+                </div>
+
+
+                <button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Créer</button>
+                  <div class="d-flex align-items-center">
+                    <p class="fs-4 mb-0 text-dark">Déjà un compte?</p>
+                    <a class="text-primary fw-medium ms-2" routerLink="/signin">Se connecter</a>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

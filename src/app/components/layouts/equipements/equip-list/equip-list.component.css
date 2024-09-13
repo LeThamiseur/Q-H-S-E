@@ -1,0 +1,4 @@
+.table-wrapper {
+  max-height: 415px; /* Définir la hauteur maximale */
+  overflow-y: auto; /* Activer le défilement vertical */
+}

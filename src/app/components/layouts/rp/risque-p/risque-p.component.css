@@ -1,0 +1,36 @@
+/* .acceptable {
+  color: green;
+}
+
+.moyen {
+  color: yellow;
+}
+
+.eleve {
+  color: orange;
+}
+
+.inacceptable {
+  color: red;
+} */
+
+
+.acceptable {
+  background-color: green;
+  color: white; /* Pour rendre le texte lisible sur fond vert */
+}
+
+.moyen {
+  background-color: yellow;
+  color: black; /* Pour rendre le texte lisible sur fond jaune */
+}
+
+.eleve {
+  background-color: orange;
+  color: white; /* Pour rendre le texte lisible sur fond orange */
+}
+
+.inacceptable {
+  background-color: red;
+  color: white; /* Pour rendre le texte lisible sur fond rouge */
+}
