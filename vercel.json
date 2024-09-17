@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "http://qhse-api.runasp.net/api/$1"
+    }
+  ]
+}
