@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
-    "@ng-select/ng-select": "^13.4.1",
+    "@ng-select/ng-select": "^13.7.1",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
     "json-server-router": "^2.8.0",
