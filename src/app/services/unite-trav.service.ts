@@ -10,8 +10,13 @@ import { Task } from '../models/task';
 export class UniteTravService {
 
   // private apiUrl = 'http://localhost:3000';
-  private apiUrl1 = 'http://qhse-api.runasp.net/api/workUnit';
-  private apiUrl2 = 'http://qhse-api.runasp.net/api/assignment';
+
+  // private apiUrl1 = 'http://qhse-api.runasp.net/api/workUnit';
+  private apiUrl1 = '/api/workUnit';
+
+  // private apiUrl2 = 'http://qhse-api.runasp.net/api/assignment';
+  private apiUrl2 = '/api/assignment';
+
 
   private readonly httpclient = inject(HttpClient);
 

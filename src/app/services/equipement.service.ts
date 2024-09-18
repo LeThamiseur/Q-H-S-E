@@ -10,7 +10,9 @@ import { Dotation } from '../models/dotation';
 })
 export class EquipementService {
 
-  private apiUrl = 'http://qhse-api.runasp.net/api/equipment';
+  // private apiUrl = 'http://qhse-api.runasp.net/api/equipment';
+  private apiUrl = '/api/equipment';
+
   private api_Url = 'http://localhost:3000';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

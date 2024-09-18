@@ -2,6 +2,7 @@
   "/api": {
     "target": "http://qhse-api.runasp.net",
     "secure": false,
-    "changeOrigin": true
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }

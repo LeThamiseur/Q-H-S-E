@@ -10,9 +10,13 @@ import { RisqueP } from '../models/RisqueP';
 })
 export class DangRiskService {
 
-  private apiUrl = 'http://localhost:3000';
-  private api_Url = 'http://qhse-api.runasp.net/api/DangerousSituation';
-  private api_Url1 = 'http://qhse-api.runasp.net/api/risk';
+  // private apiUrl = 'http://localhost:3000';
+
+  // private api_Url = 'http://qhse-api.runasp.net/api/DangerousSituation';
+  private api_Url = '/api/DangerousSituation';
+  
+  // private api_Url1 = 'http://qhse-api.runasp.net/api/risk';
+  private api_Url1 = '/api/risk';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
